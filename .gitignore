@@ -1,0 +1,16 @@
+*~
+.aliasrc.local
+.bash*
+.bin
+.cache
+.config
+.emacs.d
+.gnupg
+.java
+.lesshst
+.local
+.mutt-attach
+.ssh
+.viminfo
+.zcompdump
+.zhistory

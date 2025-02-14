@@ -1,0 +1,116 @@
+[aliases]
+# just for placeholder
+prog1     = myCA
+prog3     = mylayer
+prog4     = myclear
+
+[main]
+myCA      = layer(myCA)
+mylayer   = layer(mylayer)
+myclear   = clear()
+mycompose = compose
+
+
+capslock  = layer(control)
+alt       = layer(alt)
+meta      = layer(meta)
+
+
+mouse1    = clear()
+mouse2    = clear()
+
+
+[meta:M]
+capslock  = layer(myMC)
+shift     = layer(myMS)
+alt       = layer(myMA)
+mycompose = layer(myMAS)
+myCA      = layer(myMCA)
+[myMC:M-C]
+shift     = layer(myMCS)
+alt       = layer(myMCA)
+[myMS:M-S]
+capslock  = layer(myMCS)
+alt       = layer(myMAS)
+[myMA:M-A]
+capslock  = layer(myMCA)
+shift     = layer(myMAS)
+[myMCS:M-C-S]
+alt       = layer(myMCAS)
+[myMAS:M-A-S]
+capslock  = layer(myMCAS)
+[myMCA:M-C-A]
+shift     = layer(myMCAS)
+[myMCAS:M-C-A-S]
+
+[control:C]
+meta  = layer(myMC)
+shift = layer(myCS)
+alt   = layer(myCA)
+[myCS:C-S]
+meta  = layer(myMCS)
+alt   = layer(myCAS)
+[myCA:C-A]
+meta  = layer(myMCA)
+shift = layer(myCAS)
+[myCAS:C-A-S]
+meta  = layer(myMCAS)
+
+[alt:A]
+meta     = layer(myMA)
+capslock = layer(myCA)
+shift    = layer(myAS)
+[myAS:A-S]
+meta     = layer(myMAS)
+capslock = layer(myCAS)
+
+[shift:S]
+meta     = layer(myMS)
+capslock = layer(myCS)
+alt      = layer(myAS)
+
+
+[mylayer]
+w = up
+a = left
+s = down
+d = right
+q = home
+e = end
+z = pageup
+x = clear()
+c = pagedown
+
+u = home
+i = end
+h = left
+j = down
+k = up
+l = right
+m     = pagedown
+comma = pageup
+
+1 = f1
+2 = f2
+3 = f3
+4 = f4
+5 = f5
+6 = f6
+7 = f7
+8 = f8
+9 = f9
+0 = f10
+- = f11
+= = f12
+
+esc       = clear()
+grave     = esc
+backspace = delete
+backslash = insert
+
+tab          = oneshot(meta)
+capslock     = oneshot(control)
+rightalt     = oneshot(myCA)
+rightcontrol = oneshot(myCA)
+
+slash = compose
