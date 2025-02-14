@@ -1,6 +1,16 @@
 [ -f $HOME/.aliasrc ] && source $HOME/.aliasrc
 [ -f $HOME/.aliasrc.local ] && source $HOME/.aliasrc.local
 
+typeset -U PATH path
+path=(~/.bin ~/go/bin ~/zig ~/.cabal/bin ~/.ghcup/bin ~/.cargo/bin "$path[@]")
+export PATH
+
+export TERM=xterm-256color
+export EDITOR=vim
+
+export COLORTERM=truecolor
+export KEYTIMEOUT=1
+
 autoload -Uz compinit promptinit
 compinit
 promptinit
