@@ -24,6 +24,7 @@
 .xinitrc.local
 .zcompdump
 .zhistory
+.zlogin
 Downloads
 Jts
 mutt-attach
