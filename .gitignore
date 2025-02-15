@@ -4,6 +4,7 @@
 .bin
 .cache
 .config
+.dbus
 .emacs.d
 .gnupg
 .hwid
@@ -15,9 +16,11 @@
 .python_history
 .sqlite_history
 .ssh
+.var
 .viminfo
 .wget-hst
 .Xauthority
+.xinitrc.env
 .xinitrc.local
 .zcompdump
 .zhistory
