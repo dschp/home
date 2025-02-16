@@ -7,7 +7,6 @@
 .dbus
 .emacs.d
 .gnupg
-.hwid
 .java
 .lesshst
 .local
@@ -26,6 +25,5 @@
 .zhistory
 .zlogin
 Downloads
-Jts
 mutt-attach
 screenshots
