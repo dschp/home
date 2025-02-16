@@ -33,6 +33,9 @@ alias bt=bluetoothctl
 alias fp=flatpak
 alias fpb=flatpak-builder
 
+alias gga='git config --list'
+alias ggg='git config --global --list'
+alias ggl='git config --local --list'
 alias gst='git status'
 alias gad='git add'
 alias gcm='git commit'
