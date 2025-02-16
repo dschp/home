@@ -30,8 +30,10 @@ alias mk=make
 
 alias mt=mutt
 alias bt=bluetoothctl
-alias fp=flatpak
-alias fpb=flatpak-builder
+
+alias fp='flatpak --user'
+alias fpb='flatpak-builder --user'
+alias fpb-def='flatpak-builder --user --force-clean --repo=repo --install-deps-from=flathub build_dir'
 
 alias gga='git config --list'
 alias ggg='git config --global --list'

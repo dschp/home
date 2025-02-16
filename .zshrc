@@ -2,7 +2,7 @@
 [ -f $HOME/.aliasrc.local ] && source $HOME/.aliasrc.local
 
 typeset -U PATH path
-path=(~/.bin ~/go/bin ~/zig ~/.cabal/bin ~/.ghcup/bin ~/.cargo/bin "$path[@]")
+path=(~/.bin "$path[@]")
 export PATH
 
 export TERM=xterm-256color
