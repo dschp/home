@@ -18,11 +18,7 @@ alias vi=vim
 
 alias pf=printf
 alias rr=rehash
-
-alias tt='exec tmux'
-alias tl='tmux ls'
-alias tlc='tmux lsc'
-alias tk='tmux kill-session'
+alias trim="tr -d '\n'"
 
 alias ls='ls --color'
 alias la='ls --color -la'
@@ -32,28 +28,23 @@ alias ua='uname -a'
 alias hn='hostnamectl hostname'
 alias mk=make
 
+alias mt=mutt
+alias bt=bluetoothctl
+alias fp=flatpak
+alias fpb=flatpak-builder
+
 alias gst='git status'
 alias gad='git add'
 alias gcm='git commit'
 alias gdf='git diff'
 alias glg='git log'
+alias grt='git remote'
 alias grv='git remote -v'
 alias gck='git checkout'
 alias gll='git pull'
+alias gft='git fetch'
 alias gsh='git push'
 alias gbr='git branch'
 
 alias pc='pass -c'
 alias pe='pass edit'
-
-alias am=alsamixer
-alias bt=bluetoothctl
-
-alias mt=mutt
-
-alias mm=mpg123
-alias ms='mpg123 -z'
-alias mz='mpg123 -Z'
-
-alias trim="tr -d '\n'"
-
