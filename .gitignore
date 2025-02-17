@@ -2,9 +2,11 @@
 .aliasrc.local
 .bash*
 .bin
+.bitcoin
 .cache
 .config
 .dbus
+.electrum
 .emacs.d
 .gnupg
 .java
@@ -17,11 +19,12 @@
 .ssh
 .var
 .viminfo
-.wget-hst
+.wget-hsts
 .Xauthority
 .xinitrc.env
 .xinitrc.local
 .zcompdump
+.zshenv.local
 .zhistory
 .zlogin
 Downloads

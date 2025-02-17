@@ -1,5 +1,6 @@
 [ -f $HOME/.aliasrc ] && source $HOME/.aliasrc
 [ -f $HOME/.aliasrc.local ] && source $HOME/.aliasrc.local
+[ -f $HOME/.zshenv.local ] && source $HOME/.zshenv.local
 
 typeset -U PATH path
 path=(~/.bin "$path[@]")
