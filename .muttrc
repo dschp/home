@@ -1,9 +1,2 @@
 source ~/.muttrc-common
-
-set folder    = ~/Mail
-set spoolfile = +/
-set record    = +.Sent
-set postponed = +.Drafts
-set trash     = +.Trash
-
-mailboxes =/ =.Trash =.Sent =.Drafts
+source ~/.muttrc-default

@@ -8,10 +8,13 @@
 .dbus
 .electrum
 .emacs.d
+.fdm.conf
 .gnupg
 .java
 .lesshst
 .local
+.muttrc-default
+.netrc.gpg
 .password-store
 .pki
 .python_history
@@ -28,5 +31,6 @@
 .zhistory
 .zlogin
 Downloads
-mutt-attach
+mail
+mail-attach
 screenshots

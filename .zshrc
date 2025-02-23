@@ -8,9 +8,11 @@ export PATH
 
 export TERM=xterm-256color
 export EDITOR=vim
+export GPG_TTY=$(tty)
 
 export COLORTERM=truecolor
 export KEYTIMEOUT=1
+
 
 autoload -Uz compinit promptinit
 compinit
@@ -49,10 +51,3 @@ bindkey -M menuselect "^L" forward-char
 
 PROMPT='%F{green}>%f '
 RPROMPT=''
-
-unset SSH_AGENT_PID
-if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-fi
-export GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye >/dev/null

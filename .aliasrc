@@ -53,3 +53,7 @@ alias gbr='git branch'
 
 alias pc='pass -c'
 alias pe='pass edit'
+
+alias ga-updatetty='gpg-connect-agent updatestartuptty /bye'
+alias ga-reload='gpg-connect-agent reloadagent /bye'
+alias ga-kill='gpg-connect-agent killagent /bye'
