@@ -34,7 +34,31 @@ set rulerformat=%38(%#TabLine#\ %-t\ %m\ %#MatchParen#\ %12(%l:%c%V%)\ %k\ %4p%%
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 set nonu
 
-nnoremap m :set number!<CR>
-nnoremap ; :set hlsearch!<CR>
-
 highlight LineNr guifg=#405460
+
+let mapleader = ","
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+nnoremap <leader>e :e<space>
+nnoremap <leader>q :w<CR>
+nnoremap <leader>. :set number!<CR>
+nnoremap <leader>/ :set hlsearch!<CR>
+
+nnoremap <leader>h :split<CR>
+nnoremap <leader>v :vsplit<CR>
+
+nnoremap <leader>; :bnext<CR>
+nnoremap <leader>' :bprev<CR>
+nnoremap <leader>l :ls<CR>
+nnoremap <leader>o :only<CR>
+
+nnoremap <leader>w :tabnew<CR>
+nnoremap <leader>s :tabonly<CR>
+nnoremap <leader>d :tabnext<CR>
+nnoremap <leader>a :tabprevious<CR>
+
+nnoremap <leader><enter> :!<space>
