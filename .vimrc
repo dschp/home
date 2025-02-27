@@ -48,13 +48,13 @@ nnoremap <leader>q :w<CR>
 nnoremap <leader>. :set number!<CR>
 nnoremap <leader>/ :set hlsearch!<CR>
 
-nnoremap <leader>h :split<CR>
-nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>- :split<CR>
+nnoremap <leader>= :vsplit<CR>
+nnoremap <leader>0 :only<CR>
 
 nnoremap <leader>; :bnext<CR>
 nnoremap <leader>' :bprev<CR>
 nnoremap <leader>l :ls<CR>
-nnoremap <leader>o :only<CR>
 
 nnoremap <leader>w :tabnew<CR>
 nnoremap <leader>s :tabonly<CR>
