@@ -57,3 +57,8 @@ alias pe='pass edit'
 alias ga-updatetty='gpg-connect-agent updatestartuptty /bye'
 alias ga-reload='gpg-connect-agent reloadagent /bye'
 alias ga-kill='gpg-connect-agent killagent /bye'
+
+alias ml='ls -l $MAILPATH'
+alias mc='cat $MAILPATH'
+alias mm='less $MAILPATH'
+alias m0='truncate -s0 $MAILPATH'

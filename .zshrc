@@ -13,6 +13,7 @@ export GPG_TTY=$(tty)
 export COLORTERM=truecolor
 export KEYTIMEOUT=1
 
+autoload checkmail
 
 autoload -Uz compinit promptinit
 compinit
