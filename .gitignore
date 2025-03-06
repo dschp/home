@@ -21,6 +21,7 @@
 .sqlite_history
 .ssh/
 .var/
+.vim/
 .viminfo
 .wget-hsts
 .Xauthority
