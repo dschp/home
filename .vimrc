@@ -23,7 +23,8 @@ set smartindent
 
 set mouse=
 set pastetoggle=<F5>
-
+set number
+set list
 set listchars=tab:>-,space:·
 
 autocmd BufEnter * silent! cd %:p:h
@@ -33,8 +34,6 @@ let g:nogx = "true"
 
 set rulerformat=%38(%#TabLine#\ %-t\ %m\ %#MatchParen#\ %12(%l:%c%V%)\ %k\ %4p%%%)
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-set nonu
-
 highlight LineNr guifg=#405460
 
 let mapleader = "\\"
@@ -47,18 +46,19 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-s> :shell<CR>
 nnoremap <leader><leader> :!<space>
 nnoremap <C-f> :e<space>
+nnoremap <leader>p :pwd<CR>
 
 nnoremap <C-g> :ju<CR>
 nnoremap <C-b> :ls<CR>
 nnoremap ,, :marks<CR>
 
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprev<CR>
+nnoremap <tab> :bnext<CR>
+nnoremap <S-tab> :bprev<CR>
 nnoremap <C-a> :tabnew<CR>
 nnoremap <C-q> :tabclose<CR>
-nnoremap <C-x> :tabonly<CR>
-nnoremap <tab> :tabnext<CR>
-nnoremap <S-tab> :tabprevious<CR>
+nnoremap <C-Q> :tabonly<CR>
+nnoremap <C-n> :tabnext<CR>
+nnoremap <C-p> :tabprevious<CR>
 
 nnoremap <leader>; :set number!<CR>
 nnoremap <leader>/ :set hlsearch!<CR>
