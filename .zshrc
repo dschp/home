@@ -6,7 +6,6 @@ typeset -U PATH path
 path=(~/.bin "$path[@]")
 export PATH
 
-export TERM=xterm-256color
 export EDITOR=vim
 export GPG_TTY=$(tty)
 
