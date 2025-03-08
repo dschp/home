@@ -51,6 +51,8 @@ nnoremap <leader>p :pwd<CR>
 nnoremap <C-g> :ju<CR>
 nnoremap <C-b> :ls<CR>
 nnoremap ,, :marks<CR>
+nnoremap Q :reg<CR>
+nnoremap <C-x> :reg<CR>
 
 nnoremap <tab> :bnext<CR>
 nnoremap <S-tab> :bprev<CR>
