@@ -52,11 +52,10 @@ bind index,pager <up>     sidebar-prev
 bind index,pager <right>  sidebar-open
 
 bind index "#" noop
+bind index q noop
 
 bind pager [ half-up
 bind pager ] half-down
-
-macro index q <limit>all
 
 bind compose Y send-message
 bind compose y noop
