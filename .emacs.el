@@ -31,7 +31,7 @@
 (defun my/toggle-line-numbers ()
   (interactive)
   (setq display-line-numbers
-	(if (eq nil display-line-numbers) 'relative nil)))
+		(if (eq nil display-line-numbers) 'relative nil)))
 
 (defun my/change-window-size (func vh size)
   (if (= size 0) (message "Invalid Size: 0")
@@ -62,15 +62,15 @@
 (defun my/mark-to-char (arg char movement)
   (when (and (> char 31) (< char 127))
     (let ((ma mark-active)
-	  (cfs case-fold-search))
+		  (cfs case-fold-search))
       (setq case-fold-search nil)
       (unless ma (set-mark-command nil))
       (if (search-forward (char-to-string char) nil t arg)
-	  (progn
-	    (message "Marked until %s (%d)" (my/char-string char) char)
-	    (right-char movement))
-	(message "Char %s (%d) not found" (my/char-string char) char)
-	(unless ma (deactivate-mark)))
+		  (progn
+			(message "Marked until %s (%d)" (my/char-string char) char)
+			(right-char movement))
+		(message "Char %s (%d) not found" (my/char-string char) char)
+		(unless ma (deactivate-mark)))
       (setq case-fold-search cfs))))
 
 (defun my/mark-forward-to (arg char)
@@ -208,3 +208,18 @@
   (let ((inhibit-read-only t))
     (ansi-color-apply-on-region (point-min) (point-max))))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+
+
+(require 'color)
+(let* ((ws-lighten 30)
+       (ws-color (color-lighten-name "#880044" ws-lighten)))
+  (custom-set-faces
+   `(whitespace-newline                ((t (:foreground ,ws-color))))
+   `(whitespace-missing-newline-at-eof ((t (:foreground ,ws-color))))
+   `(whitespace-space                  ((t (:foreground ,ws-color))))
+   `(whitespace-space-after-tab        ((t (:foreground ,ws-color))))
+   `(whitespace-space-before-tab       ((t (:foreground ,ws-color))))
+   `(whitespace-tab                    ((t (:foreground ,ws-color))))
+   `(whitespace-trailing               ((t (:foreground ,ws-color))))))
+
+(setq-default tab-width 4)
