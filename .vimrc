@@ -42,31 +42,49 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+nnoremap <C-x><C-h> <C-w>v
+nnoremap <C-x><C-j> <C-w>s<C-w>j
+nnoremap <C-x><C-k> <C-w>s
+nnoremap <C-x><C-l> <C-w>v<C-w>l
 
+nnoremap <C-left>  <C-w><
+nnoremap <C-down>  <C-w>+
+nnoremap <C-up>    <C-w>-
+nnoremap <C-right> <C-w>>
+
+nnoremap <S-left>  5<C-w><
+nnoremap <S-down>  5<C-w>+
+nnoremap <S-up>    5<C-w>-
+nnoremap <S-right> 5<C-w>>
+
+nnoremap <A-left>  10<C-w><
+nnoremap <A-down>  10<C-w>+
+nnoremap <A-up>    10<C-w>-
+nnoremap <A-right> 10<C-w>>
+
+nnoremap <C-S-left>  <C-w>H
+nnoremap <C-S-down>  <C-w>J
+nnoremap <C-S-up>    <C-w>K
+nnoremap <C-S-right> <C-w>L
+
+nnoremap <C-a> :
+nnoremap <C-\> :b<space>
 nnoremap <C-s> :shell<CR>
-nnoremap <leader><leader> :!<space>
+nnoremap <C-x><C-x> :!<space>
 nnoremap <C-f> :e<space>
-nnoremap <leader>p :pwd<CR>
+nnoremap <C-x><C-p> :pwd<CR>
 
 nnoremap <C-g> :ju<CR>
 nnoremap <C-b> :ls<CR>
-nnoremap ,, :marks<CR>
-nnoremap Q :reg<CR>
-nnoremap <C-x> :reg<CR>
+nnoremap Q :marks<CR>
+nnoremap <C-q> :reg<CR>
 
-nnoremap <tab> :bnext<CR>
-nnoremap <S-tab> :bprev<CR>
-nnoremap <C-a> :tabnew<CR>
-nnoremap <C-q> :tabclose<CR>
-nnoremap <C-Q> :tabonly<CR>
+nnoremap <C-x><C-a> :tabnew<CR>
+nnoremap <C-x><C-q> :tabclose<CR>
+nnoremap <C-x><C-o> :tabonly<CR>
 nnoremap <C-n> :tabnext<CR>
 nnoremap <C-p> :tabprevious<CR>
 
-nnoremap <leader>; :set number!<CR>
-nnoremap <leader>/ :set hlsearch!<CR>
-nnoremap <leader>l :set list!<CR>
-
-nnoremap <leader>w :w<CR>
-nnoremap <leader>a :ball<CR>
-nnoremap <leader>s :badd<space>
-nnoremap <leader>d :bdelete<CR>
+nnoremap <C-x>; :set number!<CR>
+nnoremap <C-x>' :set list!<CR>
+nnoremap <C-x><C-_> :set hlsearch!<CR>
