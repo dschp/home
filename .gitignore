@@ -24,6 +24,7 @@
 .var/
 .vim/
 .viminfo
+.vimrc.local
 .wget-hsts
 .Xauthority
 .xinitrc.env

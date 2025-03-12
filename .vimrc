@@ -2,7 +2,6 @@ set nocompatible
 
 set background=dark
 set termguicolors
-colorscheme nord
 
 syntax on
 
@@ -111,3 +110,13 @@ nnoremap <C-x><C-x> :!<space>
 cnoremap <C-x> <C-k>
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
+
+if filereadable("/etc/vimrc.local")
+    source /etc/vimrc.local
+endif
+if filereadable("/etc/vim/vimrc.local")
+    source /etc/vim/vimrc.local
+endif
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
