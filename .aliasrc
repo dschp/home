@@ -28,6 +28,7 @@ alias ua='uname -a'
 alias hn='hostnamectl hostname'
 alias mk=make
 
+alias rp=ratpoison
 alias mt=mutt
 alias bt=bluetoothctl
 
