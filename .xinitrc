@@ -25,4 +25,4 @@ fi
 [ -f $HOME/.xinitrc.env ] && source $HOME/.xinitrc.env
 [ -x $HOME/.xinitrc.local ] && $HOME/.xinitrc.local
 
-exec dzwm
+exec ratpoison

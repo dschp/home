@@ -3,8 +3,11 @@
 [ -f $HOME/.zshenv.local ] && source $HOME/.zshenv.local
 
 typeset -U PATH path
-path=(~/.bin "$path[@]")
+path=(~/.bin ~/.local/bin "$path[@]")
 export PATH
+
+export MANPATH=$HOME/.local/share/man
+export INFOPATH=$HOME/.local/share/info
 
 export EDITOR=vim
 export GPG_TTY=$(tty)

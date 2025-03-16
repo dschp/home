@@ -19,6 +19,7 @@
 .password-store
 .pki/
 .python_history
+.ratpoison_history
 .sqlite_history
 .ssh/
 .var/
