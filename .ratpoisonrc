@@ -11,11 +11,11 @@ set framesels qwertyuiopasdfghjklzxcvbnm
 set resizeunit 1
 
 gnewbg browser
-gnewbg mail
 gnewbg work
+gnewbg search
+gnewbg horizon
 gnewbg vertical
 gnewbg tools
-gnewbg search
 
 escape s-equal
 addhook switchgroup groups
