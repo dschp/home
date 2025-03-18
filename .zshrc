@@ -6,8 +6,8 @@ typeset -U PATH path
 path=(~/.bin ~/.local/bin "$path[@]")
 export PATH
 
-export MANPATH=$HOME/.local/share/man
-export INFOPATH=$HOME/.local/share/info
+export MANPATH=$HOME/.local/share/man:/usr/local/share/man:/usr/share/man
+export INFOPATH=$HOME/.local/share/info:/usr/share/info
 
 export EDITOR=vim
 export GPG_TTY=$(tty)
