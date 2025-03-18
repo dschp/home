@@ -37,7 +37,7 @@ definekey top     s-question describekey
 definekey top        s-grave gselect 0
 definekey top        s-minus select -
 
-definekey top s-M-grave select 0
+definekey top s-grave select 0
 definekey top s-1 select 1
 definekey top s-2 select 2
 definekey top s-3 select 3
