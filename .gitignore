@@ -30,6 +30,7 @@
 .Xauthority
 .xinitrc.env
 .xinitrc.local
+.Xresources.local
 .zcompdump
 .zshenv.local
 .zhistory

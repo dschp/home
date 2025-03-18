@@ -1,6 +1,7 @@
 #!/bin/sh
 
 userresources=$HOME/.Xresources
+userresources_local=$HOME/.Xresources.local
 sysresources=/etc/X11/xinit/Xresources
 
 setxkbmap us -option compose:menu
@@ -11,6 +12,10 @@ fi
 
 if [ -f "$userresources" ]; then
     xrdb -merge "$userresources"
+fi
+
+if [ -f "$userresources_local" ]; then
+    xrdb -merge "$userresources_local"
 fi
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
