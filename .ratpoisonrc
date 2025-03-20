@@ -1,6 +1,6 @@
-set font "Migu 1P-11"
+set font "Noto Sans Mono-12"
 set border 1
-set fwcolor #0090ff
+set fwcolor #00f2ae
 set bwcolor #242424
 set fgcolor #4f9
 set bgcolor #222
@@ -34,10 +34,9 @@ definekey top        s-slash focus
 definekey top        s-comma title
 definekey top       s-period number
 definekey top     s-question describekey
-definekey top        s-grave gselect 0
 definekey top        s-minus select -
 
-definekey top s-grave select 0
+definekey top s-z select 0
 definekey top s-1 select 1
 definekey top s-2 select 2
 definekey top s-3 select 3
@@ -49,6 +48,7 @@ definekey top s-8 select 8
 definekey top s-9 select 9
 definekey top s-0 select 10
 
+definekey top s-M-z gselect 0
 definekey top s-M-1 gselect 1
 definekey top s-M-2 gselect 2
 definekey top s-M-3 gselect 3
@@ -86,7 +86,7 @@ definekey top s-C-F10 exec ratpoison -c "setenv fs10 `ratpoison -c 'fdump'`"
 definekey top s-C-F11 exec ratpoison -c "setenv fs11 `ratpoison -c 'fdump'`"
 definekey top s-C-F12 exec ratpoison -c "setenv fs12 `ratpoison -c 'fdump'`"
 
-definekey top s-a gnewbg
+definekey top s-a gnew
 definekey top s-b banish
 definekey top s-c exec ratpoison -c "echo $(sensors)"
 definekey top s-d exec ratpoison -c "echo $(date-tz.sh)"
@@ -111,9 +111,8 @@ definekey top s-v exec ratpoison -c "echo $(btspeaker)"
 definekey top s-w windows
 definekey top s-x exec
 definekey top s-y exec ratpoison -c "echo $(df -h | grep -v /run)"
-definekey top s-z resize
 
-definekey top s-A gnew
+definekey top s-A gnewbg
 definekey top s-H exec ratpoison -c hsplit -c exchangeright -c focusleft
 definekey top s-J exec ratpoison -c vsplit -c focusdown
 definekey top s-K exec ratpoison -c vsplit -c exchangedown -c focusup
