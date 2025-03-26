@@ -10,13 +10,15 @@ set bargravity s
 set framesels qwertyuiopasdfghjklzxcvbnm
 set resizeunit 1
 
+alias dmenu exec mydmenu -fn "sans-serif:size=15" -nb "#191919" -nf "#ffffff" -sb "#0077cc" -sf "#eeeeee"
+
 escape s-equal
 addhook switchgroup groups
 
 definekey top C-M-s-R restart
 
 definekey top       s-Escape abort
-definekey top       s-Return exec mydmenu -fn "sans-serif:size=15" -nb "#191919" -nf "#ffffff" -sb "#0077cc" -sf "#eeeeee"
+definekey top       s-Return dmenu
 definekey top     s-S-Return exec st
 definekey top          s-Tab other
 definekey top        s-C-Tab iother
@@ -86,38 +88,36 @@ definekey top s-C-F10 exec ratpoison -c "setenv fs10 `ratpoison -c 'fdump'`"
 definekey top s-C-F11 exec ratpoison -c "setenv fs11 `ratpoison -c 'fdump'`"
 definekey top s-C-F12 exec ratpoison -c "setenv fs12 `ratpoison -c 'fdump'`"
 
-definekey top s-a gnew
-definekey top s-b banish
+definekey top s-a abort
+definekey top s-b exec ratpoison -c "echo $(btspeaker)"
 definekey top s-c exec ratpoison -c "echo $(sensors)"
 definekey top s-d exec ratpoison -c "echo $(date-tz.sh)"
-definekey top s-e exec ratpoison -c "echo $(free -m)"
-definekey top s-f curframe
-definekey top s-g grename
+definekey top s-e exec ratpoison -c "echo $(uptime)"
+definekey top s-f exec ratpoison -c "echo $(free -m)"
+definekey top s-g groups
 definekey top s-h focusleft
 definekey top s-i remove
 definekey top s-j focusdown
 definekey top s-k focusup
 definekey top s-l focusright
-definekey top s-m gmove
+definekey top s-m dmenu
 definekey top s-n next
 definekey top s-o only
 definekey top s-p prev
-definekey top s-q groups
+definekey top s-q banish
 definekey top s-r redo
 definekey top s-s fselect
-definekey top s-t exec ratpoison -c "echo $(uptime)"
+definekey top s-t exec st
 definekey top s-u undo
-definekey top s-v exec ratpoison -c "echo $(btspeaker)"
+definekey top s-v exec ratpoison -c "echo $(df -h | grep -v /run)"
 definekey top s-w windows
 definekey top s-x exec
-definekey top s-y exec ratpoison -c "echo $(df -h | grep -v /run)"
+definekey top s-y swap
 
-definekey top s-A gnewbg
 definekey top s-H exec ratpoison -c hsplit -c exchangeright -c focusleft
 definekey top s-J exec ratpoison -c vsplit -c focusdown
 definekey top s-K exec ratpoison -c vsplit -c exchangedown -c focusup
 definekey top s-L exec ratpoison -c hsplit -c focusright
-definekey top s-M gnumber
 definekey top s-N gnext
 definekey top s-P gprev
 
