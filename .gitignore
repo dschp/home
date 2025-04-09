@@ -1,5 +1,6 @@
 *~
 .aliasrc.local
+.anthy/
 .bash*
 .bin/
 .bitcoin/
@@ -34,7 +35,6 @@
 .zcompdump
 .zshenv.local
 .zhistory
-.zlogin
 Downloads/
 go/
 mail/
