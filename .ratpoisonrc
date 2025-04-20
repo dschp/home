@@ -91,7 +91,7 @@ definekey top s-M-F12 exec ratpoison -c "setenv fs12 `ratpoison -c 'fdump'`"
 definekey top s-a abort
 definekey top s-b exec ratpoison -c "echo $(btspeaker)"
 definekey top s-c exec ratpoison -c "echo $(sensors)"
-definekey top s-d exec ratpoison -c "echo $(date-tz.sh)"
+definekey top s-d exec ratpoison -c "echo $(dt)"
 definekey top s-e exec ratpoison -c "echo $(uptime)"
 definekey top s-f exec ratpoison -c "echo $(free -m)"
 definekey top s-g groups
