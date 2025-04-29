@@ -64,5 +64,3 @@ alias ml='ls -l $MAILPATH'
 alias mc='cat $MAILPATH'
 alias mm='less $MAILPATH'
 alias m0='truncate -s0 $MAILPATH'
-
-alias rp-dump='ratpoison -c fdump'
