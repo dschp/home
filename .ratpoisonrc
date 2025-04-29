@@ -50,43 +50,19 @@ definekey top s-8 select 8
 definekey top s-9 select 9
 definekey top s-0 select 10
 
-definekey top s-M-z gselect 0
-definekey top s-M-1 gselect 1
-definekey top s-M-2 gselect 2
-definekey top s-M-3 gselect 3
-definekey top s-M-4 gselect 4
-definekey top s-M-5 gselect 5
-definekey top s-M-6 gselect 6
-definekey top s-M-7 gselect 7
-definekey top s-M-8 gselect 8
-definekey top s-M-9 gselect 9
-definekey top s-M-0 gselect 10
-
-definekey top  s-F1 exec ratpoison -c "frestore `ratpoison -c 'getenv fs1'`"
-definekey top  s-F2 exec ratpoison -c "frestore `ratpoison -c 'getenv fs2'`"
-definekey top  s-F3 exec ratpoison -c "frestore `ratpoison -c 'getenv fs3'`"
-definekey top  s-F4 exec ratpoison -c "frestore `ratpoison -c 'getenv fs4'`"
-definekey top  s-F5 exec ratpoison -c "frestore `ratpoison -c 'getenv fs5'`"
-definekey top  s-F6 exec ratpoison -c "frestore `ratpoison -c 'getenv fs6'`"
-definekey top  s-F7 exec ratpoison -c "frestore `ratpoison -c 'getenv fs7'`"
-definekey top  s-F8 exec ratpoison -c "frestore `ratpoison -c 'getenv fs8'`"
-definekey top  s-F9 exec ratpoison -c "frestore `ratpoison -c 'getenv fs9'`"
-definekey top s-F10 exec ratpoison -c "frestore `ratpoison -c 'getenv fs10'`"
-definekey top s-F11 exec ratpoison -c "frestore `ratpoison -c 'getenv fs11'`"
-definekey top s-F12 exec ratpoison -c "frestore `ratpoison -c 'getenv fs12'`"
-
-definekey top  s-M-F1 exec ratpoison -c "setenv fs1 `ratpoison -c 'fdump'`"
-definekey top  s-M-F2 exec ratpoison -c "setenv fs2 `ratpoison -c 'fdump'`"
-definekey top  s-M-F3 exec ratpoison -c "setenv fs3 `ratpoison -c 'fdump'`"
-definekey top  s-M-F4 exec ratpoison -c "setenv fs4 `ratpoison -c 'fdump'`"
-definekey top  s-M-F5 exec ratpoison -c "setenv fs5 `ratpoison -c 'fdump'`"
-definekey top  s-M-F6 exec ratpoison -c "setenv fs6 `ratpoison -c 'fdump'`"
-definekey top  s-M-F7 exec ratpoison -c "setenv fs7 `ratpoison -c 'fdump'`"
-definekey top  s-M-F8 exec ratpoison -c "setenv fs8 `ratpoison -c 'fdump'`"
-definekey top  s-M-F9 exec ratpoison -c "setenv fs9 `ratpoison -c 'fdump'`"
-definekey top s-M-F10 exec ratpoison -c "setenv fs10 `ratpoison -c 'fdump'`"
-definekey top s-M-F11 exec ratpoison -c "setenv fs11 `ratpoison -c 'fdump'`"
-definekey top s-M-F12 exec ratpoison -c "setenv fs12 `ratpoison -c 'fdump'`"
+definekey top s-grave gselect 0
+definekey top s-F1    gselect 1
+definekey top s-F2    gselect 2
+definekey top s-F3    gselect 3
+definekey top s-F4    gselect 4
+definekey top s-F5    gselect 5
+definekey top s-F6    gselect 6
+definekey top s-F7    gselect 7
+definekey top s-F8    gselect 8
+definekey top s-F9    gselect 9
+definekey top s-F10   gselect 10
+definekey top s-F11   gselect 11
+definekey top s-F12   gselect 12
 
 definekey top s-a abort
 definekey top s-b exec ratpoison -c "echo $(btspeaker)"
