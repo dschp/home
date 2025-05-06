@@ -19,20 +19,21 @@ definekey top C-M-s-R restart
 
 definekey top       s-Escape abort
 definekey top       s-Return dmenu
-definekey top     s-S-Return exec st
 definekey top          s-Tab other
 definekey top        s-C-Tab iother
 definekey top        s-S-Tab cother
 definekey top        s-M-Tab gother
-definekey top  s-bracketleft iprev
-definekey top s-bracketright inext
+definekey top  s-bracketleft focusprev
+definekey top s-bracketright focus
+definekey top         s-less iprev
+definekey top      s-greater inext
 definekey top    s-braceleft cprev
 definekey top   s-braceright cnext
 definekey top    s-semicolon focuslast
 definekey top        s-colon colon
 definekey top   s-apostrophe select
 definekey top     s-quotedbl gselect
-definekey top        s-slash focus
+definekey top        s-slash lastmsg
 definekey top        s-comma title
 definekey top       s-period number
 definekey top     s-question describekey
