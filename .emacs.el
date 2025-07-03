@@ -131,7 +131,7 @@
 (keymap-global-set "C-]"  'other-window)
 (keymap-global-set "C-\\" 'buffer-menu)
 (keymap-global-set "C-x C-\\" 'buffer-menu)
-(keymap-global-set "C-|"  'switch-to-buffer)
+(keymap-global-set "C-`"  'switch-to-buffer)
 (keymap-global-set "C-;"  'previous-buffer)
 (keymap-global-set "C-'"  'next-buffer)
 
@@ -186,6 +186,8 @@
 (keymap-global-set "C-q C-2" 'split-window-below)
 (keymap-global-set "C-q 3"   'split-window-right)
 (keymap-global-set "C-q C-3" 'split-window-right)
+(keymap-global-set "C-q 0"   'delete-window)
+(keymap-global-set "C-q C-0" 'delete-window)
 (keymap-global-set "C-q `"   'delete-window)
 (keymap-global-set "C-q C-`" 'delete-window)
 
