@@ -30,10 +30,9 @@ fi
 [ -f $HOME/.xinitrc.env ] && source $HOME/.xinitrc.env
 [ -x $HOME/.xinitrc.local ] && $HOME/.xinitrc.local
 
-if fcitx5 -dr; then
-	export GTK_IM_MODULE=fcitx
-	export QT_IM_MODULE=fcitx
-	export XMODIFIERS=@im=fcitx
-fi
+/usr/libexec/xdg-desktop-portal &
 
-exec ratpoison
+export _JAVA_AWT_WM_NONREPARENTING=1
+xsetroot -cursor_name left_ptr
+
+exec emacs

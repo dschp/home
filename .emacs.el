@@ -62,15 +62,15 @@
 (defun my/mark-to-char (arg char movement)
   (when (and (> char 31) (< char 127))
     (let ((ma mark-active)
-		  (cfs case-fold-search))
+          (cfs case-fold-search))
       (setq case-fold-search nil)
       (unless ma (set-mark-command nil))
       (if (search-forward (char-to-string char) nil t arg)
-		  (progn
-			(message "Marked until %s (%d)" (my/char-string char) char)
-			(right-char movement))
-		(message "Char %s (%d) not found" (my/char-string char) char)
-		(unless ma (deactivate-mark)))
+        (progn
+          (message "Marked until %s (%d)" (my/char-string char) char)
+          (right-char movement))
+        (message "Char %s (%d) not found" (my/char-string char) char)
+        (unless ma (deactivate-mark)))
       (setq case-fold-search cfs))))
 
 (defun my/mark-forward-to (arg char)
@@ -108,6 +108,10 @@
   (interactive "p")
   (duplicate-line arg)
   (next-line))
+
+(defun my/other-window-1 ()
+  (interactive)
+  (other-window -1))
 
 (defun my/spawn-st ()
   (interactive)
@@ -193,6 +197,7 @@
 
 (keymap-global-set "C-q C-q" 'quoted-insert)
 (keymap-global-set "C-q C-w" 'whitespace-mode)
+(keymap-global-set "C-q C-e" 'read-only-mode)
 (keymap-global-set "C-q C-r" 'revert-buffer)
 (keymap-global-set "C-q C-k" 'kill-current-buffer)
 
@@ -225,3 +230,73 @@
    `(whitespace-trailing               ((t (:foreground ,ws-color))))))
 
 (setq-default tab-width 4)
+
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd ";") 'dired-do-async-shell-command))
+
+
+(setq skk-user-directory "~/.emacs.d/ddskk")
+(setq skk-large-jisyo "~/.emacs.d/skk-get-jisyo/SKK-JISYO.L")
+
+(require 'pyim)
+(require 'pyim-basedict)
+(pyim-basedict-enable)
+(pyim-default-scheme 'quanpin)
+
+(global-set-key (kbd "s-\\") 'toggle-input-method)
+(global-set-key (kbd "s-\=") 'set-input-method)
+
+
+(require 'exwm)
+
+(setq exwm-workspace-number 4)
+
+(define-key exwm-mode-map (kbd "C-c") nil)
+(setq exwm-input-prefix-keys
+      '(?\M-x
+        ?\M-`
+        ?\M-&
+        ?\M-:))
+
+(add-hook 'exwm-update-class-hook
+  (lambda () (exwm-workspace-rename-buffer exwm-class-name)))
+
+(setq exwm-input-global-keys
+      `(([?\s-r] . exwm-reset)
+        ([?\s-w] . exwm-workspace-switch)
+        ([?\s-f] . exwm-floating-toggle-floating)
+        ([?\s-z] . exwm-layout-toggle-fullscreen)
+        ([?\s-c] . exwm-floating-hide)
+        ([?\s-m] . exwm-layout-toggle-mode-line)
+        ([?\s-.] . exwm-workspace-move-window)
+
+        ([?\s-e] . switch-to-buffer)
+        ([?\s-q] . buffer-menu)
+        ([?\s-n] . next-buffer)
+        ([?\s-p] . previous-buffer)
+        ([?\s-,] . rename-buffer)
+
+        ([?\s-a] . delete-other-windows)
+        ([?\s-s] . split-window-below)
+        ([?\s-d] . split-window-right)
+        ([?\s-x] . delete-window)
+
+        ([?\s-h] . windmove-left)
+        ([?\s-j] . windmove-down)
+        ([?\s-k] . windmove-up)
+        ([?\s-l] . windmove-right)
+        ([?\s-\[] . my/other-window-1)
+        ([?\s-\]] . other-window)
+
+        ([?\s-t] . my/spawn-st)
+        ([?\s-\;] . shell-command)
+        ([s-return] . (lambda (cmd)
+                        (interactive (list (read-shell-command "$ ")))
+                        (start-process-shell-command cmd nil cmd)))
+        ,@(mapcar (lambda (i)
+                    `(,(kbd (format "s-%d" i)) .
+                      (lambda ()
+                        (interactive)
+                        (exwm-workspace-switch-create ,i))))
+                  (number-sequence 0 9))))
+(exwm-wm-mode)
