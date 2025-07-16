@@ -209,7 +209,6 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
-(load-theme 'doom-nord t)
 
 (defun colorize-compilation-buffer ()
   (let ((inhibit-read-only t))
