@@ -205,6 +205,9 @@
 (keymap-global-set "C-q C-p" 'org-toggle-inline-images)
 (keymap-global-set "C-q n"   'my/toggle-line-numbers)
 
+(keymap-global-set "C-q c"   'load-theme)
+(keymap-global-set "C-q C-c" 'disable-theme)
+
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
