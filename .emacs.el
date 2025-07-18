@@ -289,6 +289,7 @@
         ([?\s-l] . windmove-right)
         ([?\s-\[] . my/other-window-1)
         ([?\s-\]] . other-window)
+        ([s-tab]] . other-window)
 
         ([?\s-t] . my/spawn-st)
         ([?\s-\;] . shell-command)
