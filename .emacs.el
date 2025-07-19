@@ -213,6 +213,12 @@
 (load custom-file)
 
 
+(set-frame-font "monospace 12" nil t)
+(set-fontset-font "fontset-default" 'han "Microsoft YaHei")
+(set-fontset-font "fontset-default" 'kana "Migu 1M")
+(set-fontset-font "fontset-default" 'greek "Noto Sans Mono")
+
+
 (defun colorize-compilation-buffer ()
   (let ((inhibit-read-only t))
     (ansi-color-apply-on-region (point-min) (point-max))))
@@ -289,7 +295,7 @@
         ([?\s-l] . windmove-right)
         ([?\s-\[] . my/other-window-1)
         ([?\s-\]] . other-window)
-        ([s-tab]] . other-window)
+        ([s-tab] . other-window)
 
         ([?\s-t] . my/spawn-st)
         ([?\s-\;] . shell-command)
