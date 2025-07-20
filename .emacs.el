@@ -274,7 +274,8 @@
         ([?\s-w] . exwm-workspace-switch)
         ([?\s-f] . exwm-floating-toggle-floating)
         ([?\s-z] . exwm-layout-toggle-fullscreen)
-        ([?\s-c] . exwm-floating-hide)
+        ([?\s-c] . exwm-input-toggle-keyboard)
+        ([?\s-v] . exwm-floating-hide)
         ([?\s-m] . exwm-layout-toggle-mode-line)
         ([?\s-.] . exwm-workspace-move-window)
 
