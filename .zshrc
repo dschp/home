@@ -9,7 +9,7 @@ export PATH
 export MANPATH=$HOME/.local/share/man:/usr/local/share/man:/usr/share/man
 export INFOPATH=$HOME/.local/share/info:/usr/share/info
 
-export EDITOR=vim
+export EDITOR=vi
 export GPG_TTY=$(tty)
 
 export COLORTERM=truecolor
