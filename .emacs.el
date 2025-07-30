@@ -113,11 +113,6 @@
   (interactive)
   (other-window -1))
 
-(defun my/spawn-st ()
-  (interactive)
-  (start-process "Terminal" nil "st"))
-
-
 (keymap-global-unset "C-x C-z")
 (keymap-global-unset "M-v")
 (keymap-global-unset "C-q")
@@ -209,6 +204,22 @@
 (keymap-global-set "C-q C-c" 'disable-theme)
 
 
+(keymap-global-set "s-q"       'buffer-menu)
+(keymap-global-set "s-a"       'switch-to-buffer)
+(keymap-global-set "s-w"       'split-window-below)
+(keymap-global-set "s-e"       'split-window-right)
+(keymap-global-set "s-z"       'delete-other-windows)
+(keymap-global-set "s-x"       'delete-window)
+(keymap-global-set "s-\["      'my/other-window-1)
+(keymap-global-set "s-\]"      'other-window)
+(keymap-global-set "s-\;"      'shell-command)
+(keymap-global-set "s-\'"      'compile)
+(keymap-global-set "s-<up>"    'windmove-up)
+(keymap-global-set "s-<down>"  'windmove-down)
+(keymap-global-set "s-<right>" 'windmove-right)
+(keymap-global-set "s-<left>"  'windmove-left)
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
@@ -251,62 +262,6 @@
 (pyim-basedict-enable)
 (pyim-default-scheme 'quanpin)
 
-(global-set-key (kbd "s-\\") 'toggle-input-method)
-(global-set-key (kbd "s-\=") 'set-input-method)
+(keymap-global-set "s-\\" 'toggle-input-method)
+(keymap-global-set "s-\=" 'set-input-method)
 
-
-(require 'exwm)
-
-(setq exwm-workspace-number 4)
-
-(define-key exwm-mode-map (kbd "C-c") nil)
-(setq exwm-input-prefix-keys
-      '(?\M-x
-        ?\M-`
-        ?\M-&
-        ?\M-:))
-
-(add-hook 'exwm-update-class-hook
-  (lambda () (exwm-workspace-rename-buffer exwm-class-name)))
-
-(setq exwm-input-global-keys
-      `(([?\s-r] . exwm-reset)
-        ([?\s-w] . exwm-workspace-switch)
-        ([?\s-f] . exwm-floating-toggle-floating)
-        ([?\s-z] . exwm-layout-toggle-fullscreen)
-        ([?\s-c] . exwm-input-toggle-keyboard)
-        ([?\s-v] . exwm-floating-hide)
-        ([?\s-m] . exwm-layout-toggle-mode-line)
-        ([?\s-.] . exwm-workspace-move-window)
-
-        ([?\s-e] . switch-to-buffer)
-        ([?\s-q] . buffer-menu)
-        ([?\s-n] . next-buffer)
-        ([?\s-p] . previous-buffer)
-        ([?\s-,] . rename-buffer)
-
-        ([?\s-a] . delete-other-windows)
-        ([?\s-s] . split-window-below)
-        ([?\s-d] . split-window-right)
-        ([?\s-x] . delete-window)
-
-        ([?\s-h] . windmove-left)
-        ([?\s-j] . windmove-down)
-        ([?\s-k] . windmove-up)
-        ([?\s-l] . windmove-right)
-        ([?\s-\[] . my/other-window-1)
-        ([?\s-\]] . other-window)
-        ([s-tab] . other-window)
-
-        ([?\s-t] . my/spawn-st)
-        ([?\s-\;] . shell-command)
-        ([s-return] . (lambda (cmd)
-                        (interactive (list (read-shell-command "$ ")))
-                        (start-process-shell-command cmd nil cmd)))
-        ,@(mapcar (lambda (i)
-                    `(,(kbd (format "s-%d" i)) .
-                      (lambda ()
-                        (interactive)
-                        (exwm-workspace-switch-create ,i))))
-                  (number-sequence 0 9))))
-(exwm-wm-mode)
