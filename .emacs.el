@@ -113,6 +113,10 @@
   (interactive)
   (other-window -1))
 
+(defun my/spawn-st ()
+  (interactive)
+  (start-process "Terminal" nil "st"))
+
 (keymap-global-unset "C-x C-z")
 (keymap-global-unset "M-v")
 (keymap-global-unset "C-q")
