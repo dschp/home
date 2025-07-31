@@ -10,6 +10,17 @@
 (scroll-bar-mode 0)
 (column-number-mode 1)
 
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
+
+(defun my/c-mode-common-hook ()
+  (setq c-basic-offset 4)
+  (setq indent-tabs-mode t))
+(add-hook 'c-mode-common-hook 'my/c-mode-common-hook)
+
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd ";") 'dired-do-async-shell-command))
+
 
 (defun my/scroll-half-down ()
   (interactive)
@@ -31,7 +42,7 @@
 (defun my/toggle-line-numbers ()
   (interactive)
   (setq display-line-numbers
-		(if (eq nil display-line-numbers) 'relative nil)))
+        (if (eq nil display-line-numbers) 'relative nil)))
 
 (defun my/change-window-size (func vh size)
   (if (= size 0) (message "Invalid Size: 0")
@@ -66,9 +77,9 @@
       (setq case-fold-search nil)
       (unless ma (set-mark-command nil))
       (if (search-forward (char-to-string char) nil t arg)
-        (progn
-          (message "Marked until %s (%d)" (my/char-string char) char)
-          (right-char movement))
+          (progn
+            (message "Marked until %s (%d)" (my/char-string char) char)
+            (right-char movement))
         (message "Char %s (%d) not found" (my/char-string char) char)
         (unless ma (deactivate-mark)))
       (setq case-fold-search cfs))))
@@ -131,12 +142,12 @@
 (keymap-global-set "M-S"  'save-buffer)
 (keymap-global-set "C-v"  'visual-line-mode)
 
-(keymap-global-set "C-]"  'other-window)
-(keymap-global-set "C-\\" 'buffer-menu)
+(keymap-global-set "C-`"  'buffer-menu)
+(keymap-global-set "C-]"  'buffer-menu)
+(keymap-global-set "C-\\" 'switch-to-buffer)
 (keymap-global-set "C-x C-\\" 'buffer-menu)
-(keymap-global-set "C-`"  'switch-to-buffer)
-(keymap-global-set "C-;"  'previous-buffer)
-(keymap-global-set "C-'"  'next-buffer)
+(keymap-global-set "C-;"  'other-window)
+(keymap-global-set "C-'"  'my/other-window-1)
 
 (keymap-global-set "<prior>"   'my/scroll-half-down)
 (keymap-global-set "<next>"    'my/scroll-half-up)
@@ -208,20 +219,21 @@
 (keymap-global-set "C-q C-c" 'disable-theme)
 
 
-(keymap-global-set "s-q"       'buffer-menu)
-(keymap-global-set "s-a"       'switch-to-buffer)
-(keymap-global-set "s-w"       'split-window-below)
-(keymap-global-set "s-e"       'split-window-right)
-(keymap-global-set "s-z"       'delete-other-windows)
-(keymap-global-set "s-x"       'delete-window)
-(keymap-global-set "s-\["      'my/other-window-1)
-(keymap-global-set "s-\]"      'other-window)
-(keymap-global-set "s-\;"      'shell-command)
-(keymap-global-set "s-\'"      'compile)
-(keymap-global-set "s-<up>"    'windmove-up)
-(keymap-global-set "s-<down>"  'windmove-down)
-(keymap-global-set "s-<right>" 'windmove-right)
-(keymap-global-set "s-<left>"  'windmove-left)
+(keymap-global-set "s-q"     'buffer-menu)
+(keymap-global-set "s-w"     'my/other-window-1)
+(keymap-global-set "s-e"     'other-window)
+(keymap-global-set "s-a"     'switch-to-buffer)
+(keymap-global-set "s-s"     'split-window-below)
+(keymap-global-set "s-d"     'split-window-right)
+(keymap-global-set "s-z"     'delete-other-windows)
+(keymap-global-set "s-x"     'delete-window)
+(keymap-global-set "s-;"     'my/other-window-1)
+(keymap-global-set "s-'"     'other-window)
+(keymap-global-set "s-["     'shell-command)
+(keymap-global-set "s-]"     'compile)
+
+(keymap-global-set "s-\\" 'toggle-input-method)
+(keymap-global-set "s-\=" 'set-input-method)
 
 
 (setq custom-file "~/.emacs.d/custom.el")
@@ -252,11 +264,6 @@
    `(whitespace-tab                    ((t (:foreground ,ws-color))))
    `(whitespace-trailing               ((t (:foreground ,ws-color))))))
 
-(setq-default tab-width 4)
-
-(with-eval-after-load 'dired
-  (define-key dired-mode-map (kbd ";") 'dired-do-async-shell-command))
-
 
 (setq skk-user-directory "~/.emacs.d/ddskk")
 (setq skk-large-jisyo "~/.emacs.d/skk-get-jisyo/SKK-JISYO.L")
@@ -265,7 +272,3 @@
 (require 'pyim-basedict)
 (pyim-basedict-enable)
 (pyim-default-scheme 'quanpin)
-
-(keymap-global-set "s-\\" 'toggle-input-method)
-(keymap-global-set "s-\=" 'set-input-method)
-
