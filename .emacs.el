@@ -2,17 +2,20 @@
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
 
-(setq magit-define-global-key-bindings 'recommended)
+(setq
+ magit-define-global-key-bindings 'recommended
+ inhibit-startup-screen t
+ frame-resize-pixelwise t
+ winner-ring-size 50
+ )
+(setq-default
+ tab-width 4
+ indent-tabs-mode nil
+ )
 
-(setq inhibit-startup-screen t)
-
-(setq frame-resize-pixelwise t)
 (scroll-bar-mode 0)
 (column-number-mode 1)
 (winner-mode 1)
-
-(setq-default tab-width 4)
-(setq-default indent-tabs-mode nil)
 
 (defun my/c-mode-common-hook ()
   (setq c-basic-offset 4)
@@ -249,7 +252,7 @@
 (keymap-global-set "M-s-/"   'bookmark-bmenu-list)
 
 (keymap-global-set "s-\\" 'toggle-input-method)
-(keymap-global-set "s-\=" 'set-input-method)
+(keymap-global-set "s-\|" 'set-input-method)
 
 
 (setq custom-file "~/.emacs.d/custom.el")
@@ -281,8 +284,10 @@
    `(whitespace-trailing               ((t (:foreground ,ws-color))))))
 
 
-(setq skk-user-directory "~/.emacs.d/ddskk")
-(setq skk-large-jisyo "~/.emacs.d/skk-get-jisyo/SKK-JISYO.L")
+(setq
+ skk-user-directory "~/.emacs.d/ddskk"
+ skk-large-jisyo "~/.emacs.d/skk-get-jisyo/SKK-JISYO.L"
+ )
 
 (require 'pyim)
 (require 'pyim-basedict)
