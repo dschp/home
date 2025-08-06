@@ -151,12 +151,10 @@
 (keymap-global-unset "C-]")
 (keymap-global-unset "C-\\")
 
-(keymap-global-set "<f1>"   'my/spawn-st)
-(keymap-global-set "<f2>"   'shell)
-(keymap-global-set "<f3>"   'enlarge-window)
-(keymap-global-set "<f4>"   'enlarge-window-horizontally)
-(keymap-global-set "S-<f3>" 'my/change-window-size-v)
-(keymap-global-set "S-<f4>" 'my/change-window-size-h)
+(keymap-global-set "<f1>"    'my/spawn-st)
+(keymap-global-set "<f2>"    'shell)
+(keymap-global-set "<f3>"    'my/change-window-size-v)
+(keymap-global-set "<f4>"    'my/change-window-size-h)
 
 (keymap-global-set "M-S"     'save-buffer)
 (keymap-global-set "C-v"     'visual-line-mode)
@@ -208,11 +206,13 @@
 (keymap-global-set "C-q C-1" 'delete-other-windows)
 (keymap-global-set "C-q 0"   'delete-window)
 (keymap-global-set "C-q C-0" 'delete-window)
+(keymap-global-set "C-q 2"   'my/change-window-size-v)
+(keymap-global-set "C-q 3"   'my/change-window-size-h)
 
 (keymap-global-set "C-q q"   'buffer-menu)
-(keymap-global-set "C-q w"   'switch-to-buffer)
+(keymap-global-set "C-q C-q" 'buffer-menu)
+(keymap-global-set "C-q TAB" 'switch-to-buffer)
 
-(keymap-global-set "C-q C-q" 'quoted-insert)
 (keymap-global-set "C-q C-w" 'whitespace-mode)
 (keymap-global-set "C-q C-e" 'read-only-mode)
 (keymap-global-set "C-q C-s" 'string-rectangle)
@@ -246,9 +246,15 @@
 (keymap-global-set "C-q K"   'split-window-below)
 (keymap-global-set "C-q L"   'my/split-window-right)
 
+(keymap-global-set "C-q x"   'my/spawn-st)
+(keymap-global-set "C-q X"   'shell)
+
 (keymap-global-set "C-q ["   'shell-command)
 (keymap-global-set "C-q ]"   'compile)
 (keymap-global-set "C-q C-]" 'recompile)
+
+(keymap-global-set "C-q '"   'quoted-insert)
+(keymap-global-set "C-q C-'" 'quoted-insert)
 
 (keymap-global-set "C-q \\"   'toggle-input-method)
 (keymap-global-set "C-q C-\\" 'set-input-method)
