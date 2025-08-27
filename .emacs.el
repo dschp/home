@@ -159,6 +159,8 @@
 (keymap-global-set "M-S"     'save-buffer)
 (keymap-global-set "C-v"     'visual-line-mode)
 
+(keymap-global-set "C-^"     'undo)
+(keymap-global-set "C-]"     'undo)
 (keymap-global-set "C-<tab>" 'other-window)
 
 (keymap-global-set "C-{"     'winner-undo)
@@ -201,6 +203,7 @@
 
 (keymap-global-set "C-z t"   'load-theme)
 (keymap-global-set "C-z C-t" 'disable-theme)
+(keymap-global-set "C-z >"   'suspend-emacs)
 
 (keymap-global-set "C-q 1"   'delete-other-windows)
 (keymap-global-set "C-q C-1" 'delete-other-windows)

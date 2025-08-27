@@ -38,6 +38,7 @@
 .zshenv.local
 .zhistory
 Downloads/
+data/
 go/
 mail/
 mail-attach/
