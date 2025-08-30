@@ -32,7 +32,7 @@ alias bt=bluetoothctl
 
 alias fp='flatpak --user'
 alias fpb='flatpak-builder --user'
-alias fpb-def='flatpak-builder --user --force-clean --repo=repo --install-deps-from=flathub build_dir'
+alias fpb-def='flatpak-builder --user --force-clean --repo=repo --install-deps-from=flathub build'
 
 alias gga='git config --list'
 alias ggg='git config --global --list'
