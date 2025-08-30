@@ -140,6 +140,18 @@
   (interactive)
   (start-process "Terminal" nil "st"))
 
+(defun my/date-add-day (date days)
+  (format-time-string
+   "%Y-%m-%d"
+   (time-add (date-to-time date)
+             (days-to-time days))))
+
+(defun my/date-add-day-current (days)
+  (format-time-string
+   "%Y-%m-%d"
+   (time-add (current-time)
+             (days-to-time days))))
+
 (keymap-global-unset "C-x C-z")
 (keymap-global-unset "M-v")
 (keymap-global-unset "C-q")
