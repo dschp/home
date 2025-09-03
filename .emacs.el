@@ -281,7 +281,7 @@
 
 (set-frame-font "monospace 12" nil t)
 (set-fontset-font "fontset-default" 'kana "Migu 1M")
-(set-fontset-font "fontset-default" 'han "Migu 1M")
+(set-fontset-font "fontset-default" 'han "Noto Sans CJK SC")
 (set-fontset-font "fontset-default" 'greek "Noto Sans Mono")
 
 
