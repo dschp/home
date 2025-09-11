@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DIR=$HOME/screenshots
+DIR=$HOME/data/screenshots
 if [ ! -d "$DIR" ]; then
   echo "$DIR does not exist."
   exit
