@@ -22,8 +22,8 @@ set smartindent
 
 set mouse=
 set pastetoggle=<F5>
-set number
-set list
+set nonumber
+set nolist
 set listchars=tab:>-,space:·
 
 autocmd BufEnter * silent! cd %:p:h

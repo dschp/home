@@ -13,7 +13,7 @@ alias n=nano
 alias p=pwd
 alias s=ssh
 alias t=tmux
-alias v=vi
+alias v=vim
 
 alias pf=printf
 alias rr=rehash
