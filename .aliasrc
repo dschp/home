@@ -19,9 +19,10 @@ alias pf=printf
 alias rr=rehash
 alias trim="tr -d '\n'"
 
-alias ls='ls --color'
-alias la='ls --color -la'
-alias ll='ls --color -l'
+alias ls='ls --color=auto'
+alias la='ls --color=auto -la'
+alias ll='ls --color=auto -l'
+alias lll='ls -l | less'
 alias py=python
 alias ua='uname -a'
 alias hn='hostnamectl hostname'
