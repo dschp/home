@@ -32,7 +32,7 @@ setopt share_history
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt hist_expire_dups_first
-HISTFILE=$HOME/.zhistory
+HISTFILE=$HOME/.zsh_history
 SAVEHIST=5000
 HISTSIZE=5000
 
