@@ -31,6 +31,6 @@
 .xinitrc.env
 .zcompdump
 Downloads/
-data/
+data
 git/
 go/
