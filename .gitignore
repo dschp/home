@@ -14,9 +14,11 @@
 .fdm.conf
 .gnupg/
 .gtk-bookmarks
+.hwid
 .java/
 .lesshst
 .local/
+.log/
 .mozilla/
 .muttrc-default
 .netrc*
@@ -31,6 +33,7 @@
 .xinitrc.env
 .zcompdump
 Downloads/
+Jts/
 data
 git/
 go/

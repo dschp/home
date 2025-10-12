@@ -30,9 +30,10 @@ fi
 [ -f $HOME/.xinitrc.env ] && source $HOME/.xinitrc.env
 [ -x $HOME/.xinitrc.local ] && $HOME/.xinitrc.local
 
-/usr/libexec/xdg-desktop-portal &
+fcitx5 -d
 
-export _JAVA_AWT_WM_NONREPARENTING=1
-xsetroot -cursor_name left_ptr
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 exec dwm

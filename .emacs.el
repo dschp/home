@@ -302,14 +302,3 @@
    `(whitespace-space-before-tab       ((t (:foreground ,ws-color))))
    `(whitespace-tab                    ((t (:foreground ,ws-color))))
    `(whitespace-trailing               ((t (:foreground ,ws-color))))))
-
-
-(setq
- skk-user-directory "~/.emacs.d/ddskk"
- skk-large-jisyo "~/.emacs.d/skk-get-jisyo/SKK-JISYO.L"
- )
-
-(require 'pyim)
-(require 'pyim-basedict)
-(pyim-basedict-enable)
-(pyim-default-scheme 'quanpin)
