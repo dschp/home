@@ -271,9 +271,6 @@
 (keymap-global-set "C-q '"   'quoted-insert)
 (keymap-global-set "C-q C-'" 'quoted-insert)
 
-(keymap-global-set "C-q \\"   'toggle-input-method)
-(keymap-global-set "C-q C-\\" 'set-input-method)
-
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
