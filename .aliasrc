@@ -15,6 +15,8 @@ alias s=ssh
 alias t=tmux
 alias v=vim
 
+alias ta='tmux attach'
+
 alias pf=printf
 alias rr=rehash
 alias trim="tr -d '\n'"
