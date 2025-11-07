@@ -1,7 +1,6 @@
 set nocompatible
 
 set background=dark
-set termguicolors
 
 syntax on
 
