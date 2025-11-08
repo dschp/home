@@ -16,6 +16,9 @@ alias t=tmux
 alias v=vim
 
 alias ta='tmux attach'
+alias ab=abduco
+alias aba='abduco -a'
+alias abc='abduco -c'
 
 alias pf=printf
 alias rr=rehash
