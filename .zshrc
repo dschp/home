@@ -54,3 +54,7 @@ bindkey -M menuselect "^L" forward-char
 
 PROMPT='%F{green}>%f '
 RPROMPT=''
+
+precmd() {
+	print -Pn "\e]0;%n@%m: %~\a"
+}
