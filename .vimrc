@@ -19,7 +19,7 @@ set tabstop=4
 set autoindent
 set smartindent
 
-set mouse=
+set mouse=a
 set pastetoggle=<F5>
 set nonumber
 set nolist
