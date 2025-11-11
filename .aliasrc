@@ -9,7 +9,6 @@ alias i=id
 alias j=jobs
 alias l=less
 alias m=mpv
-alias n=nano
 alias p=pwd
 alias s=ssh
 alias t=tmux
@@ -20,7 +19,6 @@ alias ab=abduco
 alias aba='abduco -a'
 alias abc='abduco -c'
 
-alias pf=printf
 alias rr=rehash
 alias trim="tr -d '\n'"
 
@@ -63,8 +61,3 @@ alias pe='pass edit'
 alias ga-updatetty='gpg-connect-agent updatestartuptty /bye'
 alias ga-reload='gpg-connect-agent reloadagent /bye'
 alias ga-kill='gpg-connect-agent killagent /bye'
-
-alias ml='ls -l $MAILPATH'
-alias mc='cat $MAILPATH'
-alias mm='less $MAILPATH'
-alias m0='truncate -s0 $MAILPATH'
