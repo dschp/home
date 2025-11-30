@@ -18,13 +18,10 @@
 (winner-mode 1)
 
 (defun my/c-mode-common-hook ()
+  (define-key c-mode-map (kbd "M-q") 'prog-fill-reindent-defun)
   (setq c-basic-offset 4)
   (setq indent-tabs-mode t))
 (add-hook 'c-mode-common-hook 'my/c-mode-common-hook)
-
-(with-eval-after-load 'dired
-  (define-key dired-mode-map (kbd ";") 'dired-do-async-shell-command))
-
 
 (defun my/scroll-half-down ()
   (interactive)
@@ -48,62 +45,6 @@
   (setq display-line-numbers
         (if (eq nil display-line-numbers) 'relative nil)))
 
-(defun my/change-window-size (func vh size)
-  (if (= size 0) (message "Invalid Size: 0")
-    (let ((es (if (> size 0) "Enlarge" "Shrink")))
-      (message "%s %s by %d" es vh (abs size))
-      (funcall func size))))
-
-(defun my/change-window-size-v (size)
-  (interactive "NChange window size vertically: ")
-  (my/change-window-size 'enlarge-window "vertically" size))
-
-(defun my/change-window-size-h (size)
-  (interactive "NChange window size horizontally: ")
-  (my/change-window-size 'enlarge-window-horizontally "horizontally" size))
-
-(defun revert-this-buffer ()
-  (interactive)
-  (revert-buffer nil t t)
-  (message (concat "Reverted buffer " (buffer-name))))
-
-(defun my/char-string (char)
-  (cond
-   ((eq char 32) "SPACE")
-   ((eq char 40) "'('")
-   ((eq char 41) "')'")
-   (t (string char))))
-
-(defun my/mark-to-char (arg char movement)
-  (when (and (> char 31) (< char 127))
-    (let ((ma mark-active)
-          (cfs case-fold-search))
-      (setq case-fold-search nil)
-      (unless ma (set-mark-command nil))
-      (if (search-forward (char-to-string char) nil t arg)
-          (progn
-            (message "Marked until %s (%d)" (my/char-string char) char)
-            (right-char movement))
-        (message "Char %s (%d) not found" (my/char-string char) char)
-        (unless ma (deactivate-mark)))
-      (setq case-fold-search cfs))))
-
-(defun my/mark-forward-to (arg char)
-  (interactive "p\ncMark forward to: ")
-  (my/mark-to-char arg char 0))
-
-(defun my/mark-backward-to (arg char)
-  (interactive "p\ncMark backward to: ")
-  (my/mark-to-char (- arg) char 0))
-
-(defun my/mark-forward-until (arg char)
-  (interactive "p\ncMark forward until: ")
-  (my/mark-to-char arg char -1))
-
-(defun my/mark-backward-until (arg char)
-  (interactive "p\ncMark backward until: ")
-  (my/mark-to-char (- arg) char 1))
-
 (defun my/transpose-line-forward (arg)
   (interactive "p")
   (next-line)
@@ -126,15 +67,9 @@
 
 (defun my/other-window-1 ()
   (interactive)
-  (other-window -1))
-(defun my/split-window-below ()
-  (interactive)
-  (split-window-below)
-  (windmove-down))
-(defun my/split-window-right ()
-  (interactive)
-  (split-window-right)
-  (windmove-right))
+  (if (one-window-p)
+      (error "No other window to select")
+    (other-window -1)))
 
 (defun my/spawn-st ()
   (interactive)
@@ -152,28 +87,76 @@
    (time-add (current-time)
              (days-to-time days))))
 
+(defun my/x-selection-to-emacs ()
+  "Paste text from the X selection into the Emacs buffer."
+  (interactive)
+  (let ((x-selection (x-get-selection)))
+    (if x-selection
+        (insert x-selection)
+      (message "No selection available."))))
+
+(defvar my/window-layouts-alist nil "Alist of named window layouts.")
+
+(defun my/save-window-layout (name)
+  "Save the current window layout with a given NAME."
+  (interactive (list (completing-read "Save window layout: " (mapcar 'car my/window-layouts-alist) nil nil)))
+  (let ((layout (current-window-configuration))
+        (point (point)))
+    (my/delete-window-layout name)
+    (push (cons name (list layout point)) my/window-layouts-alist)
+    (message "Layout '%s' saved." name)))
+
+(defun my/restore-window-layout (name)
+  "Restore the window layout associated with NAME."
+  (interactive (list (completing-read "Restore window layout: " (mapcar 'car my/window-layouts-alist))))
+  (let ((layout-and-point (cdr (assoc name my/window-layouts-alist))))
+    (if layout-and-point
+        (progn
+          (set-window-configuration (car layout-and-point))
+          (goto-char (cadr layout-and-point))
+          (message "Layout '%s' restored." name))
+      (message "No layout found with the name '%s'." name))))
+
+(defun my/list-window-layouts ()
+  "List all saved window layouts."
+  (interactive)
+  (if my/window-layouts-alist
+      (message "Saved window layouts: %s" (mapconcat 'car my/window-layouts-alist ", "))
+    (message "No layouts saved.")))
+
+(defun my/clear-window-layouts ()
+  "Clear all saved window layouts."
+  (interactive)
+  (setq my/window-layouts-alist nil)
+  (message "All window layouts cleared."))
+
+(defun my/delete-window-layout (name)
+  "Delete all window layouts associated with NAME."
+  (interactive (list (completing-read "Choose Layout to Delete: " (mapcar 'car my/window-layouts-alist))))
+  (let ((orig-length (length my/window-layouts-alist)))
+    (setq my/window-layouts-alist
+          (delq nil (mapcar
+                     (lambda (pair) (unless (equal (car pair) name) pair))
+                     my/window-layouts-alist)))
+    (if (/= (length my/window-layouts-alist) orig-length)
+        (message "Layout '%s' deleted." name)
+      (message "No layout found with the name '%s'." name))))
+
+
 (keymap-global-unset "C-x C-z")
-(keymap-global-unset "M-v")
 (keymap-global-unset "C-q")
-(keymap-global-unset "M-q")
 (keymap-global-unset "C-z")
 (keymap-global-unset "C-M-v")
 (keymap-global-unset "C-M-S-v")
 
-(keymap-global-unset "C-]")
-(keymap-global-unset "C-\\")
-
 (keymap-global-set "<f1>"    'my/spawn-st)
 (keymap-global-set "<f2>"    'shell)
-(keymap-global-set "<f3>"    'my/change-window-size-v)
-(keymap-global-set "<f4>"    'my/change-window-size-h)
 
-(keymap-global-set "M-S"     'save-buffer)
-(keymap-global-set "C-v"     'visual-line-mode)
+(keymap-global-set "C-]"     'other-window)
+(keymap-global-set "C-\\"    'my/other-window-1)
 
-(keymap-global-set "C-^"     'undo)
-(keymap-global-set "C-]"     'undo)
-(keymap-global-set "C-<tab>" 'other-window)
+(keymap-global-set "C-v"     'other-window)
+(keymap-global-set "M-v"     'my/x-selection-to-emacs)
 
 (keymap-global-set "C-{"     'winner-undo)
 (keymap-global-set "C-}"     'winner-redo)
@@ -185,14 +168,14 @@
 
 (keymap-global-set "C-,"   'my/scroll-half-down)
 (keymap-global-set "C-."   'my/scroll-half-up)
-(keymap-global-set "C-<"   'my/scroll-half-down-other-window)
-(keymap-global-set "C->"   'my/scroll-half-up-other-window)
 (keymap-global-set "M-,"   'scroll-down-command)
 (keymap-global-set "M-."   'scroll-up-command)
-(keymap-global-set "M-<"   'scroll-other-window-down)
-(keymap-global-set "M->"   'scroll-other-window)
 (keymap-global-set "C-M-," 'beginning-of-buffer)
 (keymap-global-set "C-M-." 'end-of-buffer)
+(keymap-global-set "C-<"   'my/scroll-half-down-other-window)
+(keymap-global-set "C->"   'my/scroll-half-up-other-window)
+(keymap-global-set "M-<"   'scroll-other-window-down)
+(keymap-global-set "M->"   'scroll-other-window)
 (keymap-global-set "C-M-<" 'beginning-of-buffer-other-window)
 (keymap-global-set "C-M->" 'end-of-buffer-other-window)
 
@@ -219,47 +202,36 @@
 
 (keymap-global-set "C-q 1"   'delete-other-windows)
 (keymap-global-set "C-q C-1" 'delete-other-windows)
+(keymap-global-set "C-q 2"   'split-window-below)
+(keymap-global-set "C-q C-2" 'split-window-below)
+(keymap-global-set "C-q 3"   'split-window-right)
+(keymap-global-set "C-q C-3" 'split-window-right)
 (keymap-global-set "C-q 0"   'delete-window)
 (keymap-global-set "C-q C-0" 'delete-window)
-(keymap-global-set "C-q 2"   'my/change-window-size-v)
-(keymap-global-set "C-q 3"   'my/change-window-size-h)
 
-(keymap-global-set "C-q q"   'buffer-menu)
+(keymap-global-set "C-q q"   'switch-to-buffer)
 (keymap-global-set "C-q C-q" 'buffer-menu)
-(keymap-global-set "C-q TAB" 'switch-to-buffer)
 
 (keymap-global-set "C-q C-w" 'whitespace-mode)
 (keymap-global-set "C-q C-e" 'read-only-mode)
+(keymap-global-set "C-q C-o" 'overwrite-mode)
 (keymap-global-set "C-q C-s" 'string-rectangle)
 (keymap-global-set "C-q C-v" 'visual-line-mode)
 (keymap-global-set "C-q C-a" 'org-agenda)
 (keymap-global-set "C-q C-p" 'org-toggle-inline-images)
 (keymap-global-set "C-q C-n" 'my/toggle-line-numbers)
 
-(keymap-global-set "C-q r"   'jump-to-register)
-(keymap-global-set "C-q R"   'window-configuration-to-register)
-(keymap-global-set "C-q M-r" 'point-to-register)
+(keymap-global-set "C-q y"   'winner-redo)
+(keymap-global-set "C-q C-y" 'winner-undo)
 
-(keymap-global-set "C-q y"   'winner-undo)
-(keymap-global-set "C-q C-y" 'winner-redo)
-
-(keymap-global-set "C-q f"   'my/mark-forward-until)
-(keymap-global-set "C-q C-f" 'my/mark-backward-until)
-(keymap-global-set "C-q t"   'my/mark-forward-to)
-(keymap-global-set "C-q C-t" 'my/mark-backward-to)
+(keymap-global-set "C-q ,"   'my/save-window-layout)
+(keymap-global-set "C-q ."   'my/restore-window-layout)
+(keymap-global-set "C-q /"   'my/list-window-layouts)
+(keymap-global-set "C-q `"   'my/delete-window-layout)
 
 (keymap-global-set "C-q C-j" 'bookmark-jump)
 (keymap-global-set "C-q C-k" 'bookmark-set)
 (keymap-global-set "C-q C-l" 'bookmark-bmenu-list)
-
-(keymap-global-set "C-q h"   'windmove-left)
-(keymap-global-set "C-q j"   'windmove-down)
-(keymap-global-set "C-q k"   'windmove-up)
-(keymap-global-set "C-q l"   'windmove-right)
-(keymap-global-set "C-q H"   'split-window-right)
-(keymap-global-set "C-q J"   'my/split-window-below)
-(keymap-global-set "C-q K"   'split-window-below)
-(keymap-global-set "C-q L"   'my/split-window-right)
 
 (keymap-global-set "C-q x"   'my/spawn-st)
 (keymap-global-set "C-q X"   'shell)
