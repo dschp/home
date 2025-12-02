@@ -211,6 +211,7 @@
 
 (keymap-global-set "C-q q"   'switch-to-buffer)
 (keymap-global-set "C-q C-q" 'buffer-menu)
+(keymap-global-set "C-q g"   'magit-status)
 
 (keymap-global-set "C-q SPC"   'rectangle-mark-mode)
 (keymap-global-set "C-q C-SPC" 'rectangle-mark-mode)
