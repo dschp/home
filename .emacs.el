@@ -212,6 +212,9 @@
 (keymap-global-set "C-q q"   'switch-to-buffer)
 (keymap-global-set "C-q C-q" 'buffer-menu)
 
+(keymap-global-set "C-q SPC"   'rectangle-mark-mode)
+(keymap-global-set "C-q C-SPC" 'rectangle-mark-mode)
+
 (keymap-global-set "C-q C-w" 'whitespace-mode)
 (keymap-global-set "C-q C-e" 'read-only-mode)
 (keymap-global-set "C-q C-o" 'overwrite-mode)
