@@ -211,7 +211,6 @@
 
 (keymap-global-set "C-q q"   'switch-to-buffer)
 (keymap-global-set "C-q C-q" 'buffer-menu)
-(keymap-global-set "C-q g"   'magit-status)
 
 (keymap-global-set "C-q SPC"   'rectangle-mark-mode)
 (keymap-global-set "C-q C-SPC" 'rectangle-mark-mode)
@@ -247,6 +246,8 @@
 (keymap-global-set "C-q '"   'quoted-insert)
 (keymap-global-set "C-q C-'" 'quoted-insert)
 
+(keymap-global-set "C-q g"   'magit-status)
+(keymap-global-set "C-x g"   'magit-status)
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
