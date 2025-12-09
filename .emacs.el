@@ -158,6 +158,8 @@
 (keymap-global-set "C-v"     'other-window)
 (keymap-global-set "M-v"     'my/x-selection-to-emacs)
 
+(keymap-global-set "M-L"     'mark-word)
+
 (keymap-global-set "C-{"     'winner-undo)
 (keymap-global-set "C-}"     'winner-redo)
 
