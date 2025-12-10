@@ -23,6 +23,11 @@
   (setq indent-tabs-mode t))
 (add-hook 'c-mode-common-hook 'my/c-mode-common-hook)
 
+(defun my/org-mode-hook ()
+  (define-key org-mode-map (kbd "C-,") 'my/scroll-half-down)
+)
+(add-hook 'org-mode-hook 'my/org-mode-hook)
+
 (defun my/scroll-half-down ()
   (interactive)
   (let ((h (window-total-height)))
