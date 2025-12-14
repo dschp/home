@@ -256,6 +256,9 @@
 (keymap-global-set "C-q g"   'magit-status)
 (keymap-global-set "C-x g"   'magit-status)
 
+(keymap-global-set "C-q m"   'mu4e)
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
@@ -283,3 +286,17 @@
    `(whitespace-space-before-tab       ((t (:foreground ,ws-color))))
    `(whitespace-tab                    ((t (:foreground ,ws-color))))
    `(whitespace-trailing               ((t (:foreground ,ws-color))))))
+
+(require 'mu4e)
+(setq mu4e-update-interval 180)
+(with-eval-after-load "mm-decode"
+  (add-to-list 'mm-discouraged-alternatives "text/html")
+  (add-to-list 'mm-discouraged-alternatives "text/richtext")
+  (add-to-list 'mm-discouraged-alternatives "multipart/related"))
+(setq shr-color-visible-luminance-min 90)
+(add-to-list 'mu4e-view-mime-part-actions
+    '(:name "dmarc" :handler "gunzip -c | xmllint --format -" :receives pipe))
+(add-to-list 'mu4e-view-mime-part-actions
+    '(:name "lynx" :handler "lynx -dump -stdin -force_html -assume_charset=utf-8 -display_charset=utf-8 -assume_unrec_charset=utf-8 -assume_local_charset=utf-8" :receives pipe))
+
+(load "~/.emacs.d/mu4e.el")
