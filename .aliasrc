@@ -3,7 +3,7 @@ alias b=bindkey
 alias c=clear
 alias d=date
 alias f=fg
-alias g=grep
+alias g='grep --color=always'
 alias h=history
 alias i=id
 alias j=jobs
@@ -14,18 +14,16 @@ alias s=ssh
 alias t=tmux
 alias v=vim
 
+alias ls='ls --color=auto'
+alias ll='ls --color=always -l'
+alias la='ls --color=always -la'
+alias lll='ls --color=always -l | less'
+
 alias ta='tmux attach'
-alias ab=abduco
-alias aba='abduco -a'
-alias abc='abduco -c'
 
 alias rr=rehash
 alias trim="tr -d '\n'"
 
-alias ls='ls --color=auto'
-alias la='ls --color=auto -la'
-alias ll='ls --color=auto -l'
-alias lll='ls -l | less'
 alias py=python
 alias ua='uname -a'
 alias hn='hostnamectl hostname'
@@ -49,7 +47,7 @@ alias glg='git log'
 alias glgg='glg --pretty=fuller --stat'
 alias grt='git remote'
 alias grv='git remote -v'
-alias gck='git checkout'
+alias gch='git checkout'
 alias gll='git pull'
 alias gft='git fetch'
 alias gsh='git push'
@@ -58,6 +56,6 @@ alias gbr='git branch'
 alias pc='pass -c'
 alias pe='pass edit'
 
-alias ga-updatetty='gpg-connect-agent updatestartuptty /bye'
-alias ga-reload='gpg-connect-agent reloadagent /bye'
-alias ga-kill='gpg-connect-agent killagent /bye'
+alias gca-updatetty='gpg-connect-agent updatestartuptty /bye'
+alias gca-reload='gpg-connect-agent reloadagent /bye'
+alias gca-kill='gpg-connect-agent killagent /bye'

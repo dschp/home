@@ -11,6 +11,7 @@ export INFOPATH=$HOME/.local/share/info:/usr/share/info
 
 export EDITOR=vi
 export GPG_TTY=$(tty)
+export LESS='-R'
 
 export COLORTERM=truecolor
 export KEYTIMEOUT=1
