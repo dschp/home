@@ -11,7 +11,7 @@ set timeout    = 10
 set sleep_time = 0
 set pager_stop = yes
 set markers    = no
-set attach_save_dir = "~/data/mutt-attach"
+set attach_save_dir = "~"
 set mail_check_stats
 
 set menu_scroll
