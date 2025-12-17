@@ -22,6 +22,7 @@
 .mozilla/
 .muttrc-default
 .netrc*
+.notmuch-config
 .password-store
 .pki/
 .ssh/

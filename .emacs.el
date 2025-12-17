@@ -287,16 +287,25 @@
    `(whitespace-tab                    ((t (:foreground ,ws-color))))
    `(whitespace-trailing               ((t (:foreground ,ws-color))))))
 
-(require 'mu4e)
-(setq mu4e-update-interval 180)
-(with-eval-after-load "mm-decode"
-  (add-to-list 'mm-discouraged-alternatives "text/html")
-  (add-to-list 'mm-discouraged-alternatives "text/richtext")
-  (add-to-list 'mm-discouraged-alternatives "multipart/related"))
 (setq shr-color-visible-luminance-min 90)
-(add-to-list 'mu4e-view-mime-part-actions
-    '(:name "dmarc" :handler "gunzip -c | xmllint --format -" :receives pipe))
-(add-to-list 'mu4e-view-mime-part-actions
-    '(:name "lynx" :handler "lynx -dump -stdin -force_html -assume_charset=utf-8 -display_charset=utf-8 -assume_unrec_charset=utf-8 -assume_local_charset=utf-8" :receives pipe))
 
-(load "~/.emacs.d/mu4e.el")
+(autoload 'mu4e "mu4e" "mu4e mail" t)
+
+(defun my/mu4e-init ()
+  (setq mu4e-update-interval 180)
+  (with-eval-after-load "mm-decode"
+    (add-to-list 'mm-discouraged-alternatives "text/html")
+    (add-to-list 'mm-discouraged-alternatives "text/richtext")
+    (add-to-list 'mm-discouraged-alternatives "multipart/related"))
+  (add-to-list 'mu4e-view-mime-part-actions
+               '(:name "dmarc" :handler "gunzip -c | xmllint --format -" :receives pipe))
+  (add-to-list 'mu4e-view-mime-part-actions
+               '(:name "lynx" :handler "lynx -dump -stdin -force_html -assume_charset=utf-8 -display_charset=utf-8 -assume_unrec_charset=utf-8 -assume_local_charset=utf-8" :receives pipe))
+  (load "~/.emacs.d/mu4e.el"))
+
+(advice-add 'mu4e :around
+            (lambda (orig-fun &rest args)
+              (my/mu4e-init)
+              (apply orig-fun args)))
+
+(autoload 'notmuch "notmuch" "notmuch mail" t)

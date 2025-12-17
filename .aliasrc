@@ -29,8 +29,12 @@ alias ua='uname -a'
 alias hn='hostnamectl hostname'
 alias mk=make
 
-alias mt=mutt
 alias bt=bluetoothctl
+alias mt=mutt
+
+alias nm=notmuch
+alias nmn='notmuch new'
+alias nms='notmuch search'
 
 alias fp='flatpak --user'
 alias fpb='flatpak-builder --user'
