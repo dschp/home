@@ -257,6 +257,7 @@
 (keymap-global-set "C-x g"   'magit-status)
 
 (keymap-global-set "C-q m"   'mu4e)
+(keymap-global-set "C-q n"   'notmuch)
 
 
 (setq custom-file "~/.emacs.d/custom.el")
