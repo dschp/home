@@ -2,20 +2,32 @@
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
 
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
+
+
+(set-frame-font "monospace 13" nil t)
+(set-fontset-font "fontset-default" 'kana "Migu 1M")
+(set-fontset-font "fontset-default" 'han "Noto Sans CJK SC")
+(set-fontset-font "fontset-default" 'greek "Noto Sans Mono")
+
+(scroll-bar-mode 0)
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+(column-number-mode 1)
+(winner-mode 1)
+
 (setq
  magit-define-global-key-bindings 'recommended
  inhibit-startup-screen t
  frame-resize-pixelwise t
  winner-ring-size 50
+ default-input-method "japanese-skk"
  )
 (setq-default
  tab-width 4
  indent-tabs-mode nil
  )
-
-(scroll-bar-mode 0)
-(column-number-mode 1)
-(winner-mode 1)
 
 (defun my/c-mode-common-hook ()
   (define-key c-mode-map (kbd "M-q") 'prog-fill-reindent-defun)
@@ -75,6 +87,19 @@
   (if (one-window-p)
       (error "No other window to select")
     (other-window -1)))
+(defun my/split-window-below ()
+  (interactive)
+  (split-window-below)
+  (windmove-down))
+(defun my/split-window-right ()
+  (interactive)
+  (split-window-right)
+  (windmove-right))
+
+(defun my/disable-all-themes ()
+  (interactive)
+  (dolist (theme custom-enabled-themes)
+    (disable-theme theme)))
 
 (defun my/spawn-st ()
   (interactive)
@@ -204,7 +229,7 @@
 (keymap-global-set "C-z k"   'kill-current-buffer)
 
 (keymap-global-set "C-z t"   'load-theme)
-(keymap-global-set "C-z C-t" 'disable-theme)
+(keymap-global-set "C-z C-t" 'my/disable-all-themes)
 (keymap-global-set "C-z >"   'suspend-emacs)
 
 (keymap-global-set "C-q 1"   'delete-other-windows)
@@ -218,6 +243,8 @@
 
 (keymap-global-set "C-q q"   'switch-to-buffer)
 (keymap-global-set "C-q C-q" 'buffer-menu)
+(keymap-global-set "C-q b"   'switch-to-buffer)
+(keymap-global-set "C-q C-b" 'list-buffers)
 
 (keymap-global-set "C-q SPC"   'rectangle-mark-mode)
 (keymap-global-set "C-q C-SPC" 'rectangle-mark-mode)
@@ -260,16 +287,6 @@
 (keymap-global-set "C-q n"   'notmuch)
 
 
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
-
-
-(set-frame-font "monospace 12" nil t)
-(set-fontset-font "fontset-default" 'kana "Migu 1M")
-(set-fontset-font "fontset-default" 'han "Noto Sans CJK SC")
-(set-fontset-font "fontset-default" 'greek "Noto Sans Mono")
-
-
 (defun colorize-compilation-buffer ()
   (let ((inhibit-read-only t))
     (ansi-color-apply-on-region (point-min) (point-max))))
@@ -310,3 +327,7 @@
               (apply orig-fun args)))
 
 (autoload 'notmuch "notmuch" "notmuch mail" t)
+(setq
+ notmuch-show-logo nil
+ notmuch-hello-thousands-separator ","
+ )
