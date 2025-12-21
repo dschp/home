@@ -32,6 +32,7 @@
 .wget-hsts
 .Xauthority
 .xinitrc.env
+.xinitrc.wm
 .zcompdump
 Downloads/
 Jts/

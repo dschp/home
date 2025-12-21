@@ -25,15 +25,20 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 	unset f
 fi
 
-[ -x $HOME/.fehbg ] && $HOME/.fehbg
+if command -v fcitx5 &> /dev/null; then
+	fcitx5 -d
+	export GTK_IM_MODULE=fcitx
+	export QT_IM_MODULE=fcitx
+	export XMODIFIERS=@im=fcitx
+fi
+
+command -v feh &> /dev/null && [ -x $HOME/.fehbg ] && $HOME/.fehbg
 
 [ -f $HOME/.xinitrc.env ] && source $HOME/.xinitrc.env
 [ -x $HOME/.xinitrc.local ] && $HOME/.xinitrc.local
 
-fcitx5 -d
-
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-
-exec dwm
+if [ -x $HOME/.xinitrc.wm ]; then
+	exec $HOME/.xinitrc.wm
+else
+	exec dwm
+fi
