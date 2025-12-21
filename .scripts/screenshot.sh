@@ -1,11 +1,12 @@
 #!/bin/sh
 
-DIR=$HOME/data/screenshots
-if [ ! -d "$DIR" ]; then
-  echo "$DIR does not exist."
-  exit
-fi
+command -v scrot &> /dev/null
+if [ $? -ne 0 ]; then echo "scrot not found"; exit; fi
 
+DIR=$HOME/data/screenshots
+if [ ! -d "$DIR" ]; then echo "$DIR does not exist."; exit; fi
+
+echo "Waiting 1 sec for screenshot..."
 sleep 1
 
 cd $DIR
