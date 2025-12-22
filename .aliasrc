@@ -36,9 +36,9 @@ alias nm=notmuch
 alias nmn='notmuch new'
 alias nms='notmuch search'
 
-alias fp='flatpak --user'
-alias fpb='flatpak-builder --user'
-alias fpb-def='flatpak-builder --user --force-clean --repo=repo --install-deps-from=flathub build'
+alias flpk='flatpak --user'
+alias flpkb='flatpak-builder --user'
+alias flpkbdef='flatpak-builder --user --force-clean --repo=repo --install-deps-from=flathub build'
 
 alias gga='git config --list'
 alias ggg='git config --global --list'
