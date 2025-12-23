@@ -125,6 +125,24 @@
         (insert x-selection)
       (message "No selection available."))))
 
+(defun my/start-process (cmd)
+  (interactive (list (read-shell-command "Start process: ")))
+  (start-process-shell-command cmd nil cmd))
+
+(defun my/launcher ()
+  "Prompt for a command from a predefined list and execute it with optional arguments."
+  (interactive)
+  (let* ((dir "~/.launcher")
+         (launcher-list (directory-files dir nil "^[a-zA-Z0-9]" nil))
+         (cmd (completing-read "Launcher: " launcher-list)))
+    (if (member cmd launcher-list)
+        (let ((cmdpath (format "%s/%s" dir cmd))
+              (args (read-string (format "Arguments for %s (leave blank for none): " cmd))))
+          (if (string-empty-p args)
+              (start-process-shell-command cmd nil cmdpath)
+            (start-process-shell-command cmd nil (concat cmdpath " " args))))
+      (message (format "Command \"%s\" doesn't exist in launcher list." cmd)))))
+
 (defvar my/window-layouts-alist nil "Alist of named window layouts.")
 
 (defun my/save-window-layout (name)
@@ -285,6 +303,10 @@
 
 (keymap-global-set "C-q m"   'mu4e)
 (keymap-global-set "C-q n"   'notmuch)
+
+(keymap-global-set "C-q <return>"   'my/start-process)
+(keymap-global-set "C-q C-<return>" 'my/launcher)
+(keymap-global-set "C-q S-<return>" 'my/spawn-st)
 
 
 (defun colorize-compilation-buffer ()

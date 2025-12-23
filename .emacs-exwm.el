@@ -2,7 +2,7 @@
 
 (require 'exwm)
 
-(setq exwm-workspace-number 4)
+(setq exwm-workspace-number 10)
 
 (add-hook 'exwm-update-class-hook
           (lambda () (exwm-workspace-rename-buffer exwm-class-name)))
@@ -10,17 +10,18 @@
 (setq exwm-input-global-keys
       `(([?\s-r] . exwm-reset)
         ([?\s-w] . exwm-workspace-switch)
-        ([?\s-\C-w] . exwm-workspace-switch-to-buffer)
+        ([?\s-s] . exwm-workspace-switch-to-buffer)
         ([s-escape] . switch-to-buffer)
         ([s-tab] . other-window)
         ([?\s-`] . switch-to-buffer)
         ([?\s-,] . rename-buffer)
         ([?\s-q] . buffer-menu)
-        ([?\s-o] . delete-other-windows)
+        ([?\s-a] . delete-other-windows)
+        ([?\s-z] . delete-window)
         ([?\s-y] . winner-undo)
-        ([?\s-Y] . winner-redo)
         ([?\s-u] . previous-buffer)
         ([?\s-i] . next-buffer)
+        ([?\s-o] . winner-redo)
         ([?\s-h] . windmove-left)
         ([?\s-l] . windmove-right)
         ([?\s-k] . windmove-up)
@@ -37,13 +38,8 @@
         ([?\s-\M-j] . enlarge-window)
         ([?\s-\M-k] . shrink-window)
         ([?\s-\M-l] . enlarge-window-horizontally)
-        ([?\s-m] . (lambda () (interactive) (start-process "Banish Mouse" nil "xdotool" "mousemove" "0"     "10000")))
-        ([?\s-M] . (lambda () (interactive) (start-process "Banish Mouse" nil "xdotool" "mousemove" "10000" "10000")))
-        ([?\s-\;] . my/spawn-st)
-        ([?\s-\'] . my/spawn-st)
-        ([s-return] . (lambda (cmd)
-                        (interactive (list (read-shell-command "$ ")))
-                        (start-process-shell-command cmd nil cmd)))
+        ([?\s-m]    . (lambda () (interactive) (start-process "Banish Mouse" nil "xdotool" "mousemove" "0"     "10000")))
+        ([?\s-M]    . (lambda () (interactive) (start-process "Banish Mouse" nil "xdotool" "mousemove" "10000" "10000")))
         ,@(mapcar (lambda (i)
                     `(,(kbd (format "s-%d" i)) .
                       (lambda ()

@@ -3,7 +3,7 @@
 [ -f $HOME/.zshenv.local ] && source $HOME/.zshenv.local
 
 typeset -U PATH path
-path=(~/.bin ~/.local/bin "$path[@]")
+path=(~/.bin ~/.launcher ~/.scripts ~/.local/bin "$path[@]")
 export PATH
 
 export MANPATH=$HOME/.local/share/man:/usr/local/share/man:/usr/share/man
