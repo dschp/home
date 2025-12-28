@@ -261,6 +261,7 @@
 
 (keymap-global-set "C-q q"   'switch-to-buffer)
 (keymap-global-set "C-q C-q" 'buffer-menu)
+(keymap-global-set "C-q C-f" 'find-file)
 (keymap-global-set "C-q b"   'switch-to-buffer)
 (keymap-global-set "C-q C-b" 'list-buffers)
 

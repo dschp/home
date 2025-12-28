@@ -40,5 +40,8 @@ command -v feh &> /dev/null && [ -x $HOME/.fehbg ] && $HOME/.fehbg
 if [ -x $HOME/.xinitrc.wm ]; then
 	exec $HOME/.xinitrc.wm
 else
-	exec dwm
+    while true; do
+	    dwm
+        [ $? -ne 1 ] && exit
+    done
 fi

@@ -49,7 +49,7 @@
 
 (setq exwm-input-prefix-keys
       '(?\C-q
-        ?\C-x
+        ?\C-\]
         ?\M-x
         ?\M-`
         ?\M-&
