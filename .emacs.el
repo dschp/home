@@ -263,7 +263,8 @@
 (keymap-global-set "C-q C-q" 'buffer-menu)
 (keymap-global-set "C-q C-f" 'find-file)
 (keymap-global-set "C-q b"   'switch-to-buffer)
-(keymap-global-set "C-q C-b" 'list-buffers)
+(keymap-global-set "C-q h"   'previous-buffer)
+(keymap-global-set "C-q l"   'next-buffer)
 
 (keymap-global-set "C-q SPC"   'rectangle-mark-mode)
 (keymap-global-set "C-q C-SPC" 'rectangle-mark-mode)
@@ -331,7 +332,7 @@
    `(whitespace-tab                    ((t (:foreground ,ws-color))))
    `(whitespace-trailing               ((t (:foreground ,ws-color))))))
 
-(setq shr-color-visible-luminance-min 90)
+(setq shr-color-visible-luminance-min 100)
 
 (autoload 'mu4e "mu4e" "mu4e mail" t)
 
