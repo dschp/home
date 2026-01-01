@@ -263,6 +263,7 @@
 (keymap-global-set "C-q C-q" 'buffer-menu)
 (keymap-global-set "C-q C-f" 'find-file)
 (keymap-global-set "C-q b"   'switch-to-buffer)
+(keymap-global-set "C-q C-b" 'switch-to-buffer)
 (keymap-global-set "C-q h"   'previous-buffer)
 (keymap-global-set "C-q l"   'next-buffer)
 
@@ -275,6 +276,7 @@
 (keymap-global-set "C-q C-w" 'whitespace-mode)
 (keymap-global-set "C-q C-e" 'read-only-mode)
 (keymap-global-set "C-q C-o" 'overwrite-mode)
+(keymap-global-set "C-q C-r" 'replace-string)
 (keymap-global-set "C-q C-s" 'string-rectangle)
 (keymap-global-set "C-q C-v" 'visual-line-mode)
 (keymap-global-set "C-q C-a" 'org-agenda)
