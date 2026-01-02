@@ -63,3 +63,5 @@ alias pe='pass edit'
 alias gca-updatetty='gpg-connect-agent updatestartuptty /bye'
 alias gca-reload='gpg-connect-agent reloadagent /bye'
 alias gca-kill='gpg-connect-agent killagent /bye'
+
+alias show-cursor='printf "\033[?25h"'
