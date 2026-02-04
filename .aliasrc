@@ -28,6 +28,7 @@ alias py=python
 alias ua='uname -a'
 alias hn='hostnamectl hostname'
 alias mk=make
+alias ct='column -t'
 
 alias bt=bluetoothctl
 alias mt=mutt
