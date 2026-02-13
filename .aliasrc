@@ -30,6 +30,9 @@ alias hn='hostnamectl hostname'
 alias mk=make
 alias ct='column -t'
 
+alias sc=systemctl
+alias jc=journalctl
+
 alias bt=bluetoothctl
 alias mt=mutt
 
