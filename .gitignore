@@ -20,7 +20,6 @@
 .local
 .log
 .mozilla
-.muttrc-default
 .netrc*
 .notmuch-config
 .password-store
@@ -36,6 +35,7 @@
 .zcompdump
 Downloads
 Jts
+Maildir
 data
 git
 go
