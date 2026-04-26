@@ -6,14 +6,7 @@
 (load custom-file)
 
 
-(set-frame-font "monospace 13" nil t)
-(set-fontset-font "fontset-default" 'kana "Migu 1M")
-(set-fontset-font "fontset-default" 'han "Noto Sans CJK SC")
-(set-fontset-font "fontset-default" 'greek "Noto Sans Mono")
-
-(scroll-bar-mode 0)
 (menu-bar-mode 0)
-(tool-bar-mode 0)
 (column-number-mode 1)
 (winner-mode 1)
 

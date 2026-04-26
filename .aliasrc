@@ -34,7 +34,7 @@ alias sc=systemctl
 alias jc=journalctl
 
 alias bt=bluetoothctl
-alias mt=mutt
+alias mt=neomutt
 
 alias nm=notmuch
 alias nmn='notmuch new'
