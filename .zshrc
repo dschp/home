@@ -6,9 +6,6 @@ typeset -U PATH path
 path=(~/.bin ~/.launcher ~/.scripts ~/.local/bin "$path[@]")
 export PATH
 
-export MANPATH=$HOME/.local/share/man:/usr/local/share/man:/usr/share/man
-export INFOPATH=$HOME/.local/share/info:/usr/share/info
-
 export EDITOR=vi
 export GPG_TTY=$(tty)
 export LESS='-R'

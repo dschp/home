@@ -25,6 +25,7 @@
 .password-store
 .pki
 .ssh
+.termux_authinfo
 .var
 .vim
 .viminfo
